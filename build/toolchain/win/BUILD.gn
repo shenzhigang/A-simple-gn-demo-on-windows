@@ -1,0 +1,13 @@
+toolchain("win") {
+ tool("cc"){ 
+  command = "clang -c {{source}} -o {{output}}" outputs = [ "{{source_out_dir}}/{{target_output_name}}.o" ] 
+ } 
+ tool("cxx"){ 
+  command = "clang++ -c {{source}} -o {{output}}" outputs = [ "{{source_out_dir}}/{{target_output_name}}.o" ] 
+ } 
+ tool("link"){ 
+  exe_name = "{{root_out_dir}}/{{target_output_name}}{{output_extension}}" 
+  command = "clang++ {{inputs}} -o $exe_name" outputs = ["$exe_name"]
+  default_output_extension = ".exe"
+ }
+}

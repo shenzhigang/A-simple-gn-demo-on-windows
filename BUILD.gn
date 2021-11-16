@@ -1,0 +1,5 @@
+executable("helloworld") {
+  sources = [
+    "src/main.c",
+  ]
+}
